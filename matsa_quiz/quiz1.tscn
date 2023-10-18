@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://boton_correcto.tscn" type="PackedScene" id=1]
+[ext_resource path="res://logo-sandfirematsa.webp" type="Texture" id=2]
+[ext_resource path="res://completetask_0.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Quiz_Master.tres" type="DynamicFont" id=4]
+[ext_resource path="res://572936__bloodpixelhero__error.wav" type="AudioStream" id=5]
+[ext_resource path="res://planta.jpeg" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Nueva Animación"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Resultado:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -206, 503 ), Vector2( 207, 492 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -104.0
+margin_top = -168.0
+margin_right = 695.0
+margin_bottom = 945.0
+
+[node name="WhatsAppImage2023-10-17At93756Am" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.176471 )
+position = Vector2( 293.875, 254 )
+scale = Vector2( 1.76392, 1.70052 )
+texture = ExtResource( 6 )
+
+[node name="Logo-sandfirematsa" type="Sprite" parent="."]
+position = Vector2( 281, 611 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 37.0
+margin_top = 31.0
+margin_right = 517.0
+margin_bottom = 136.0
+rect_pivot_offset = Vector2( -809, 58 )
+custom_fonts/font = ExtResource( 4 )
+text = "¿QUE CAPACIDAD DE PROCESAMIENTO
+ DE MINERAL TIENE NUESTRA PLANTA?"
+align = 1
+valign = 1
+
+[node name="TextureButton" parent="." instance=ExtResource( 1 )]
+margin_left = 177.0
+margin_top = 203.0
+margin_right = 367.0
+margin_bottom = 251.0
+expand = true
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = 15.0
+margin_top = 17.0
+margin_right = 177.0
+margin_bottom = 31.0
+text = "3 Millones de toneladas"
+align = 1
+valign = 1
+
+[node name="TextureButton2" parent="." instance=ExtResource( 1 )]
+margin_left = 178.0
+margin_top = 266.0
+margin_right = 368.0
+margin_bottom = 314.0
+expand = true
+
+[node name="Label2" type="Label" parent="TextureButton2"]
+margin_left = 13.0
+margin_top = 15.0
+margin_right = 175.0
+margin_bottom = 29.0
+text = "8 Millones de toneladas"
+align = 1
+valign = 1
+
+[node name="TextureButton3" parent="." instance=ExtResource( 1 )]
+margin_left = 177.0
+margin_top = 331.0
+margin_right = 367.0
+margin_bottom = 379.0
+rect_pivot_offset = Vector2( 121, 0 )
+expand = true
+correct = true
+
+[node name="Label2" type="Label" parent="TextureButton3"]
+margin_left = 13.0
+margin_top = 15.0
+margin_right = 175.0
+margin_bottom = 29.0
+text = "4,5 Millones de Toneladas"
+align = 1
+valign = 1
+
+[node name="TextureButton4" parent="." instance=ExtResource( 1 )]
+margin_left = 177.0
+margin_top = 394.0
+margin_right = 367.0
+margin_bottom = 442.0
+rect_pivot_offset = Vector2( 121, 0 )
+expand = true
+
+[node name="Label2" type="Label" parent="TextureButton4"]
+margin_left = 15.0
+margin_top = 7.0
+margin_right = 177.0
+margin_bottom = 38.0
+text = "Todo el mineral que
+producimos"
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Nueva Animación" = SubResource( 1 )
+
+[node name="Resultado" type="Label" parent="."]
+margin_left = -206.0
+margin_top = 503.0
+margin_right = -63.0
+margin_bottom = 554.0
+custom_fonts/font = ExtResource( 4 )
+text = "RESPUESTA"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="TextureButton" method="_on_AnimationPlayer_animation_finished"]
