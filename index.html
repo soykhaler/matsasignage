@@ -1,111 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
         }
-
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 5px;
+            flex-grow: 1;
+        }
+        .grid-item {
+            background-size: cover;
+            padding: 20px; 
+            text-align: center;
+            color: white;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em; 
+            box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.3);
+            
+            /* Añade sombra paralela al texto */
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+        }
+        .grid-item::before {
+            content: "";
+            display: block;
+            padding-top: 50%; /* Reduce padding-top to make grid items smaller */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
         .navbar {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            align-items: center;
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .navbar a {
-            display: block;
-            color: #000000;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .section {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; 
-            height: calc(100vh - 120px);
-        }
-
-        .section.active {
-            display: flex;
-        }
-
-        h1 {
-            font-family: 'Oswald', sans-serif;
-        }
-
-        .logo-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center; 
             height: 70px;
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            
+             /* Añade sombra paralela al texto */
+             text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+             
+             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
         }
-
-        iframe {
-            width: 100%;
-            height: calc(100vh - 120px);
+        /* Styles for the iframe and close button */
+        #iframeContainer {
+          display: none;
+          position: fixed;
+          top: 10%;
+          left: 10%;
+          width: 80%;
+          height: 80%;
+          z-index: 1000;
+          background-color:white; 
+          border-radius :10px; -
+          box-shadow :5px 5px 15px rgba(0,0,0,0.3);
+          
+           /* Añade sombra paralela al texto */
+           text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+        }
+        #closeButton {
+          position:absolute; 
+          right :20px; 
+          top :20px; 
+          cursor:pointer; 
+          font-size :30px; 
+          color :#333
+          
+           /* Añade sombra paralela al texto */
+           text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
-
-    <div class="logo-bar">
-        <img src="https://sandfirematsa.es/wp-content/uploads/2022/01/logo-sandfirematsa.png" alt="Logo" style="width:346px;height:90px;">
+    <div class="grid-container">
+        <div class="grid-item" style="background-image:url('https://sandfirematsa.es/wp-content/uploads/2022/01/operaria-sonriendo.jpg');" onclick="openIframe('https://itch.io/embed-upload/8910618?color=333333');">Juegos</div>
+        <div class="grid-item" style="background-image:url('https://cdn.pixabay.com/photo/2015/09/03/09/12/open-pit-mining-920200_1280.jpg');" onclick="openIframe('https://sandfirematsa.es/sala-de-prensa/');">Noticias Corporativas</div>
+        <div class="grid-item" style="background-image:url('https://cdn.pixabay.com/photo/2014/12/11/12/22/smartphone-564155_1280.jpg');" onclick="openIframe('https://sandfirematsa.es/sala-de-prensa/');">Comunicados y Mensajes</div>
+        <div class="grid-item" style="background-image:url('https://sandfirematsa.es/wp-content/uploads/cabecera-comunidades.jpg');" onclick="location.href='#enlace4';">Encuestas</div>
+        <div class="grid-item" style="background-image:url('https://cdn.pixabay.com/photo/2015/09/03/09/12/open-pit-mining-920200_1280.jpg');" onclick="location.href='#enlace5';">Videos</div>
     </div>
-
-    <iframe id="Inicio" class="section active" src="https://sandfirematsa.es"></iframe>
-
-    <div id="Menú" class="section">
-        <h1>Menú</h1>
-    </div>
-
-    <div id="Noticias" class="section">
-        <h1>Noticias</h1>
-    </div>
-
-    <div id="Ajustes" class="section">
-        <h1>Ajustes</h1>
-    </div>
-
     <div class="navbar">
-        <a href="#" onclick="changeSection('Inicio')"><i class="fa fa-home fa-2x"></i></a>
-        <a href="#" onclick="changeSection('Menú')"><i class="fa fa-bars fa-2x"></i></a>
-        <a href="#" onclick="changeSection('Noticias')"><i class="fa fa-newspaper-o fa-2x"></i></a>
-        <a href="#" onclick="changeSection('Ajustes')"><i class="fa fa-cog fa-2x"></i></a>
+        <img src="https://sandfirematsa.es/wp-content/uploads/2022/01/logo-sandfirematsa.png" alt="Logo" style="width:auto;height:auto;max-width:346px;max-height:90px;">
+    </div>
+    <!-- The iframe container -->
+    <div id="iframeContainer">
+      <span id="closeButton" onclick="closeIframe();">X</span>
+      <iframe id="iframe" style="width:100%; height:90%;"></iframe>
     </div>
 
     <script>
-        function changeSection(section) {
-            var sections = document.getElementsByClassName('section');
-            
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active');
-                
-                if (sections[i].id === section) {
-                    sections[i].classList.add('active');
-                }
-            }
-        }
-    </script>
+      function openIframe(url) {
+        document.getElementById('iframe').src = url;
+        document.getElementById('iframeContainer').style.display = 'block';
+      }
 
+      function closeIframe() {
+        document.getElementById('iframe').src = '';
+        document.getElementById('iframeContainer').style.display = 'none';
+      }
+    </script>
 </body>
 </html>
