@@ -32,7 +32,7 @@
         function cargarPagina() {
             if (navigator.onLine) {
                 // Si hay conexión a Internet, cargar la página normalmente
-                location.reload();
+                //location.reload();
             } else {
                 // Si no hay conexión, cargar la página desde el caché
                 caches.open('mi-caché').then(function(cache) {
