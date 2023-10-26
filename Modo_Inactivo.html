@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="45">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Mode</title>
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="45"> <!-- Actualización de la página cada 45 segundos -->
 </head>
 <body>
     <h1 id="Viewer">
@@ -14,17 +13,46 @@
     <h1 id="Testing">
         Testing 
     </h1>
+
+    <style>
+        #Viewer {
+            justify-content: center;
+            text-align: center;
+            font: 50px Arial, sans-serif;
+        }
+
+        #Testing {
+            justify-content: center;
+            text-align: center;
+            font: 50px Arial, sans-serif;
+            scale: 0.8;
+        }
+    </style>
+
+    <script>
+        function cargarPagina() {
+            if (navigator.onLine) {
+                // Si hay conexión a Internet, cargar la página normalmente
+                location.reload();
+            } else {
+                // Si no hay conexión, cargar la página desde el caché
+                caches.open('mi-caché').then(function(cache) {
+                    cache.match('/index.html').then(function(response) {
+                        if (response) {
+                            response.text().then(function(content) {
+                                document.body.innerHTML = content;
+                            });
+                        }
+                    });
+                });
+            }
+        }
+
+        // Cargar la página cada 45 segundos
+        setInterval(cargarPagina, 45000);
+        cargarPagina(); // Cargar la página al cargar la web
+    </script>
+    
+
 </body>
-<style>
-    #Viewer{
-        justify-content: center;
-        text-align: center;
-        font: 50px Arial, sans-serif;
-    }
-    #Testing{
-        justify-content: center;
-        text-align: center;
-        font: 50px Arial, sans-serif;
-    }
-</style>
 </html>
