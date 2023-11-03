@@ -13,10 +13,12 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -104.0
-margin_top = -168.0
-margin_right = 695.0
-margin_bottom = 945.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1482.0
+margin_top = -553.0
+margin_right = 1352.0
+margin_bottom = 273.0
 
 [node name="Logo-sandfirematsa" type="Sprite" parent="."]
 position = Vector2( 281, 611 )

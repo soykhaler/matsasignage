@@ -24,7 +24,6 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 window/size/width=540
 window/size/height=676
-window/size/resizable=false
 
 [editor_plugins]
 
