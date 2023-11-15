@@ -99,7 +99,24 @@
     </div>
 
     <script>
-      
+      let timeoutId;
+      const idleTime = 60000; // 1 minuto en milisegundos
+
+      function resetTimer() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          window.location.href = 'https://soykhaler.github.io/matsasignage/Modo_Inactivo';
+        }, idleTime);
+      }
+
+        function setupTimer() {
+          document.addEventListener('mousemove', resetTimer);
+          document.addEventListener('keydown', resetTimer);
+          document.addEventListener('click', resetTimer);
+          resetTimer();
+        }
+
+window.addEventListener('DOMContentLoaded', setupTimer);
       function openIframe(url) {
         document.getElementById('iframe').src = url;
         document.getElementById('iframeContainer').style.display = 'block';
