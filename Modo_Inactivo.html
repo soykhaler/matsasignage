@@ -7,12 +7,6 @@
     <meta http-equiv="refresh" content="10"> <!-- Actualización de la página cada 45 segundos -->
 </head>
 <body>
-    <h1 id="Viewer">
-        View Mode
-    </h1>
-    <h2 id="Testing">
-       Text
-    </h2>
     <img id="logo" src="https://sandfirematsa.es/wp-content/uploads/2022/01/logo-sandfirematsa.png" alt="Logo" style="display: block; margin-left: auto; margin-right: auto; width:auto; height:auto; max-width:306px; max-height:90px;">
     <a href="https://soykhaler.github.io/matsasignage/" class="orange-button">
         Acceder al Menú
@@ -31,16 +25,43 @@
             scale: .7;
         }
         .orange-button {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        padding: 10px 20px;
-        background-color: rgb(255, 81, 0);
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        }
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            padding: 35px 30px;
+            background-color: rgb(255, 60, 0);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 16px;
+            font: 30px Arial, sans-serif;
+                }
+                body {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: display;
+            background-color: white;
+            background-attachment: fixed;
+            background-size: 1900px;
+            
+            }
+            body::after {
+    content: "";
+    background: url('https://www.investinspain.org/content/dam/icex-invest/img/noticias/img-sandfire.jpg');
+    opacity: 0.5; /* Ajusta este valor para cambiar la opacidad */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
 
     </style>
 
@@ -55,11 +76,11 @@
                     cache.match('/index.html').then(function(response) {
                         if (response) {
                             response.text().then(function(content) {
-                                document.body.innerHTML = content;*/
+                                document.body.innerHTML = content;
                             });
                         }
                     });
-                });
+                });*/
             }
         }
 
