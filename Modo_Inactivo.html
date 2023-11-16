@@ -60,28 +60,28 @@
     </style>
 
     <script>
-        function cargarPagina() {
-            if (navigator.onLine) {
-                // Descomentar si quieres que se actualice sola
-                //location.reload();
-            } else {
-                // Si no hay conexión, cargar la página desde el caché
-               /* caches.open('mi-caché').then(function(cache) {
-                    cache.match('/index.html').then(function(response) {
-                        if (response) {
-                            response.text().then(function(content) {
-                                document.body.innerHTML = content;
-                            });
-                        }
-                    });
-                });*/
-            }
-        }
+    //     function cargarPagina() {
+    //         if (navigator.onLine) {
+    //             // Descomentar si quieres que se actualice sola
+    //             //location.reload();
+    //         } else {
+    //             // Si no hay conexión, cargar la página desde el caché
+    //            /* caches.open('mi-caché').then(function(cache) {
+    //                 cache.match('/index.html').then(function(response) {
+    //                     if (response) {
+    //                         response.text().then(function(content) {
+    //                             document.body.innerHTML = content;
+    //                         });
+    //                     }
+    //                 });
+    //             });*/
+    //         }
+    //     }
 
-        // Cargar la página cada 45 segundos
-        setInterval(cargarPagina, 4500);
-        cargarPagina(); // Cargar la página al cargar la web
-    </script>
+    //     // Cargar la página cada 45 segundos
+    //     setInterval(cargarPagina, 4500);
+    //     cargarPagina(); // Cargar la página al cargar la web
+    // </script>
     
 
 </body>
