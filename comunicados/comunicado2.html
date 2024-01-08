@@ -10,7 +10,7 @@
     <h1 style="color: rgb(255, 72, 0); font-family: Arial; text-align: center;">Comunicado de Guardia</h1>
 
  
-<h3>Estimados compañeros</h3>
+<h3>PRUEBA DE COMUNICADO 2</h3>
 
  <br>
 
@@ -86,10 +86,32 @@ Sandfire MATSA
   </a>
 
 
+<button class="orange-button" style="float: right;" onclick="goNext()">Siguiente</button>
+
+<button class="orange-button" style="float: left;" onclick="goBack()">Atrás</button>
+
+
 </body>
 </html>
 
 <style>
+          .orange-button {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            padding: 75px 30px;
+            background-color: rgb(255, 60, 0);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 16px;
+            font: 30px Arial, sans-serif;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.55);
+        }
+
+
+
     body {
       background-color: white;
       font-family: Arial, sans-serif;
@@ -98,3 +120,24 @@ Sandfire MATSA
 </style>
 
 
+<script>
+    // saltar de un comunicado a otro
+function goBack() {
+  let currentFile = window.location.pathname.split("/").pop();
+  let fileNumber = parseInt(currentFile.split("_")[1].split(".")[0]);
+  if (fileNumber > 1) {
+    let newFileNumber = fileNumber - 1;
+    let newFile = "comunicado" + newFileNumber + ".html";
+    window.location.href = newFile;
+  }
+}
+
+function goNext() {
+  let currentFile = window.location.pathname.split("/").pop();
+  let fileNumber = parseInt(currentFile.split("_")[1].split(".")[0]);
+  let newFileNumber = fileNumber + 1;
+  let newFile = "comunicado" + newFileNumber + ".html";
+  window.location.href = newFile;
+}
+
+</script>
