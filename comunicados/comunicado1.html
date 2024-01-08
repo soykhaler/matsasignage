@@ -122,8 +122,16 @@ Sandfire MATSA
 
 <script>
     // saltar de un comunicado a otro
+    function goNext() {
+  let currentFile = window.location.href.split("/").pop();
+  let fileNumber = parseInt(currentFile.split("_")[1].split(".")[0]);
+  let newFileNumber = fileNumber + 1;
+  let newFile = "comunicado" + newFileNumber + ".html";
+  window.location.href = newFile;
+}
+
 function goBack() {
-  let currentFile = window.location.pathname.split("/").pop();
+  let currentFile = window.location.href.split("/").pop();
   let fileNumber = parseInt(currentFile.split("_")[1].split(".")[0]);
   if (fileNumber > 1) {
     let newFileNumber = fileNumber - 1;
@@ -131,13 +139,4 @@ function goBack() {
     window.location.href = newFile;
   }
 }
-
-function goNext() {
-  let currentFile = window.location.pathname.split("/").pop();
-  let fileNumber = parseInt(currentFile.split("_")[1].split(".")[0]);
-  let newFileNumber = fileNumber + 1;
-  let newFile = "comunicado" + newFileNumber + ".html";
-  window.location.href = newFile;
-}
-
 </script>
