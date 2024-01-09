@@ -123,22 +123,17 @@ Sandfire MATSA
 <script>
     // saltar de un comunicado a otro
     function goNext() {
-  let currentURL = window.location.href;
-  let fileNumber = parseInt(currentURL.replace("https://soykhaler.github.io/matsasignage/comunicados/comunicado", "").replace(".html", ""));
-  let newFileNumber = fileNumber + 1;
-  let newURL = currentURL.replace("comunicado" + fileNumber, "comunicado" + newFileNumber);
-  window.location.href = newURL;
+      window.location.href = "soykhaler.github.io/matsasignage/comunicados/comunicado2";
+
+
 }
 
 function goBack() {
-  let currentURL = window.location.href;
-  let fileNumber = parseInt(currentURL.replace("https://soykhaler.github.io/matsasignage/comunicados/comunicado", "").replace(".html", ""));
-  if (fileNumber > 1) {
-    let newFileNumber = fileNumber - 1;
-    let newURL = currentURL.replace("comunicado" + fileNumber, "comunicado" + newFileNumber);
-    window.location.href = newURL;
+  
+  window.location.href = "soykhaler.github.io/matsasignage/comunicados/comunicado3";
+  
   }
-}
+
 
 
 </script>
