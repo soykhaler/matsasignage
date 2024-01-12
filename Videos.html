@@ -29,10 +29,38 @@
 </head>
 <body>
     <div id="video-container">
-        <iframe width="400" height="315" src="https://www.youtube.com/embed/arY5D7vP_GE?si=1hQIMut39Qga5gR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="video" width="750" height="515" src="https://www.youtube.com/embed/arY5D7vP_GE?si=1hQIMut39Qga5gR4&autoplay=1&enablejsapi=1" title="MATSA Videos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
+
     <a href="https://sandfirematsa.es" target="_blank">
         <img id="logo" src="https://sandfirematsa.es/wp-content/uploads/2022/01/logo-sandfirematsa.png" alt="Logo">
     </a>
+
+    <script>
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                var iframe = document.getElementById('video');
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) {
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) {
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) {
+                    iframe.msRequestFullscreen();
+                }
+            }
+        }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
