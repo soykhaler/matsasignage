@@ -75,10 +75,29 @@
         ];
 
         // Selecciona un iframe aleatoriamente
-        var randomIframe = iframes[Math.floor(Math.random() * iframes.length)];
-
+        //var randomIframe = iframes[Math.floor(Math.random() * iframes.length)];
         // Muestra el iframe seleccionado en el contenedor
-        document.getElementById('iframeContainer').innerHTML = randomIframe;
+        //document.getElementById('iframeContainer').innerHTML = randomIframe;
+        // Obtener el índice del último elemento mostrado desde el almacenamiento local del navegador
+        
+        
+        //EN ORDEN
+        
+        var lastIndex = localStorage.getItem('lastIndex');
+
+        // Si no hay un índice almacenado o el índice es igual o mayor que la longitud del array, establecer el índice en 0
+        if (lastIndex === null || lastIndex >= iframes.length) {
+            lastIndex = 0;
+        }
+
+        // Mostrar el elemento correspondiente al último índice en el contenedor
+        document.getElementById('iframeContainer').innerHTML = iframes[lastIndex];
+
+        // Calcular el índice del siguiente elemento
+        var nextIndex = (parseInt(lastIndex) + 1) % iframes.length;
+
+        // Almacenar el índice del siguiente elemento en el almacenamiento local del navegador
+        localStorage.setItem('lastIndex', nextIndex.toString());
     </script>
 
 </body>
