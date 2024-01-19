@@ -78,6 +78,7 @@
           cursor:pointer; 
           font-size :50px; 
           color :#000000;
+          background-color: white;
           
            /* Añade sombra paralela al texto */
            text-shadow: 3px 23x rgba(0, 0, 0, 0.5);
@@ -98,11 +99,60 @@
     </div>
     <!-- The iframe container -->
     <div id="iframeContainer">
-      <span id="closeButton" onclick="closeIframe();">X</span>
+      <span id="closeButton" onclick="closeIframe();">&nbsp; X &nbsp;</span>
       <iframe id="iframe" style="width:100%; height:100%;"></iframe>
+      <span id="homeButton" onclick="goToHomePage()">Home</span>
     </div>
 
     <script>
+     //cambios
+     // Obtener la URL de inicio correspondiente a cada página
+          var noticiasURL = "https://soykhaler.github.io/matsasignage/noticias/noticia1.html";
+          var encuestasURL = "https://soykhaler.github.io/matsasignage/encuestas/encuesta1.html";
+          // Agrega más variables URL para otras páginas aquí...
+
+          // Obtener el nombre de la página actual
+          var currentPage = window.location.href;
+
+          // Función para redirigir a la página de inicio correspondiente
+          function goToHomePage() {
+            if (currentPage.includes("noticias")) {
+              window.open(noticiasURL, '_self');
+            } else if (currentPage.includes("encuestas")) {
+              window.open(encuestasURL, '_self');
+            } else {
+              // Redirigir a la página de inicio predeterminada si no se encuentra ninguna página específica
+              window.open("https://soykhaler.github.io/matsasignage/index.html", '_self');
+            }
+          }
+
+          // Agregar un botón de inicio dentro del iframe
+          var iframe = document.getElementById('iframe');
+          iframe.onload = function() {
+            var iframeDocument = iframe.contentWindow.document;
+            var homeButton = iframeDocument.createElement('button');
+            homeButton.textContent = 'Home';
+            homeButton.onclick = goToHomePage;
+            homeButton.style.position = 'fixed';
+            homeButton.style.bottom = '20px';
+            homeButton.style.left = '50%';
+            homeButton.style.transform = 'translateX(-50%)';
+            homeButton.style.padding = '10px 20px';
+            homeButton.style.backgroundColor = 'blue';
+            homeButton.style.color = 'white';
+            homeButton.style.border = 'none';
+            homeButton.style.borderRadius = '5px';
+            homeButton.style.cursor = 'pointer';
+            iframeDocument.body.appendChild(homeButton);
+          };
+
+          // Cargar la página original en el iframe
+          iframe.src = currentPage;
+
+          
+
+
+     //fin cambios 
       let timeoutId;
       const idleTime = 180000; // 1 minuto en milisegundos
 
