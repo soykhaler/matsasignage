@@ -100,12 +100,18 @@
     <!-- The iframe container -->
     <div id="iframeContainer">
       <span id="closeButton" onclick="closeIframe();">&nbsp; X &nbsp;</span>
-      <iframe id="iframe" style="width:100%; height:100%;"></iframe>
+      <span id="homeButton" onclick="goToInitialLink();" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 100px; height: 100px; background-color: white; text-align: center; line-height: 100px;">Home</span>
+      <iframe id="iframe" src="https://sandfirematsa.es/sala-de-prensa/" style="width:100%; height:100%;" onload="updateCurrentUrl()"></iframe>
     </div>
 
     <script>
      //cambios
-     
+
+     var initialLink = "about:blank";
+     function goToInitialLink() 
+      {
+        document.getElementById('iframe').src = initialLink;
+      }
 
  
 
@@ -113,7 +119,6 @@
      //fin cambios 
       let timeoutId;
       const idleTime = 180000; // 1 minuto en milisegundos = 180000;
-
       function resetTimer() {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
@@ -132,6 +137,7 @@ window.addEventListener('DOMContentLoaded', setupTimer);
       function openIframe(url) {
         document.getElementById('iframe').src = url;
         document.getElementById('iframeContainer').style.display = 'block';
+        initialLink = url;
       }
 
       function closeIframe() {
