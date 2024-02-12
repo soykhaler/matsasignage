@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    .white-text {
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+    }
+  </style>
+  <title>Landing Page</title>
+</head>
+<body>
+  <div class="video-container">
+    <div class="video-wrapper">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jL6GF99YJ8k?autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&mute=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="text-container">
+      <h1 class="white-text">Your Text Here</h1>
+    </div>
+  </div>
+</body>
+</html>
